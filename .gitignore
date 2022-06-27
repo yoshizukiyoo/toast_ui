@@ -5,3 +5,7 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/yoshizukiyoo/toast_ui.git
 git push -u origin main
+
+# Editor directories and files
+.vscode
+.gitgnore
