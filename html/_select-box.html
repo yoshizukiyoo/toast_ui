@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../node_modules/select-box/dist/toastui-select-box.min.css">
+	<link rel="stylesheet" href="../node_modules/tui-grid/dist/tui-grid.min.css">
+	<script src="../node_modules/select-box/dist/toastui-select-box.min.js"></script>
+	<script src="../node_modules/tui-grid/dist/tui-grid.min.js"></script>
+	<title>셀렉트 박스</title>
+</head>
+
+<body>
+	<h2>셀렉트 박스</h2>
+	<div id="select-box" style="width: 200px"></div>
+	<div id="grid"></div>
+	<script>
+		// 페이즈 스크립트 정의
+		var selectBox = new tui.SelectBox('#select-box', {
+			placeholder: 'Please select an option.',
+			data: [{
+					label: 'Fruits',
+					data: [{
+						label: 'Apple',
+						value: 'apple',
+
+					}, {
+						label: 'Banana',
+						value: 'banana'
+					}]
+				},
+				{
+					label: 'The quick brown fox jumps over the lazy dog.',
+					value: 'none'
+				},
+				{
+					label: 'Colors',
+					data: [{
+							label: 'Red',
+							value: 'red'
+						},
+						{
+							label: 'Yellow',
+							value: 'yellow'
+						},
+						{
+							label: 'Green',
+							value: 'green',
+							disabled: true
+						},
+						{
+							label: 'Blue',
+							value: 'blue',
+							disabled: true
+						},
+						{
+							label: 'Purple',
+							value: 'purple'
+						}
+					]
+				},
+			],
+			autofocus: true,
+		});
+
+		const data = [{
+				name: '10012',
+				artist: 'Seoul',
+				type: 'South Korea',
+				release: 'test1',
+				genre: 'test2',
+			},
+			{
+				id: '10013',
+				city: 'Tokyo',
+				country: 'Japan'
+			},
+			{
+				id: '10014',
+				city: 'London',
+				country: 'England'
+			},
+			{
+				id: '10015',
+				city: 'Ljubljana',
+				country: 'Slovenia'
+			},
+			{
+				id: '10016',
+				city: 'Reykjavik',
+				country: 'Iceland'
+			}
+		];
+
+		class CustomTextEditor {
+			constructor(props) {
+				const el = document.createElement('input');
+				const {
+					maxLength
+				} = props.columnInfo.editor.options;
+
+				el.type = 'text';
+				el.maxLength = maxLength;
+				el.value = String(props.value);
+
+				this.el = el;
+			}
+
+			getElement() {
+				return this.el;
+			}
+
+			getValue() {
+				return this.el.value;
+			}
+
+			mounted() {
+				this.el.select();
+			}
+		}
+
+		var grid = new tui.Grid({
+			el: document.getElementById('grid'),
+			data: data,
+			columns: [{
+					header: 'Name',
+					name: 'name',
+				},
+				{
+					header: 'Artist',
+					name: 'artist'
+				},
+				{
+					header: 'Type',
+					name: 'type'
+				},
+				{
+					header: 'Release',
+					name: 'release'
+				},
+				{
+					header: 'Genre',
+					name: 'genre',
+					copyOptions: {
+						useListItemText: true
+					},
+					formatter: 'listItemText',
+					editor: {
+						type: 'select',
+						options: {
+							listItems: [{
+									// text: '★☆☆',
+									// value: '1',
+									// copyOptions: {
+									// 	useListItemText: true
+									// },
+									// formatter: 'listItemText',
+									editor: {
+										type: 'checkbox',
+										options: {
+											listItems: [{
+													text: '1',
+													value: '1'
+												},
+												{
+													text: '1',
+													value: '1'
+												},
+												{
+													text: '1',
+													value: '1'
+												},
+											]
+										}
+									}
+								},
+								{
+									text: '★★☆',
+									value: '2'
+								},
+								{
+									text: '★★★',
+									value: '3'
+								}
+							]
+						}
+					}
+				}
+			],
+		})
+	</script>
+</body>
+
+</html>
