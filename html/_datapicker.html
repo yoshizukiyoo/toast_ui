@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../node_modules/tui-date-picker/dist/tui-date-picker.min.css">
+	<script src="../node_modules/tui-date-picker/dist/tui-date-picker.min.js"></script>
+	<title>토스트-UI</title>
+</head>
+
+<body>
+	<h2>데이트피커</h2>
+	<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+		<input type="text" id="datepicker-input" aria-label="Date-Time">
+		<span class="tui-ico-date"></span>
+	</div>
+	<div id="wrapper" style="margin-top: -1px;"></div>
+
+	<!-- basic 데이트피커 -->
+	<script>
+		var datepicker = new tui.DatePicker('#wrapper', {
+			date: new Date(),
+			input: {
+				element: '#datepicker-input',
+				format: 'yyyy-MM-dd'
+			}
+		});
+	</script>
+</body>
+
+</html>
