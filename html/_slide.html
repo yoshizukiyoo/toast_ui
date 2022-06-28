@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../node_modules/swiper/swiper.min.css">
+	<script src="../node_modules/swiper/swiper-bundle.min.js"></script>
+	<title>슬라이드</title>
+	<style>
+		.slide123 {
+			width: 500px;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+
+		.slide123 .swiper-slide {
+			width: 250px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="slide123">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">111</div>
+				<div class="swiper-slide">222</div>
+				<div class="swiper-slide">333</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		//	페이즈 스크립트 정의
+
+		const slide1 = new Swiper('.slide123', {
+			slidesPerView: 1,
+
+		})
+	</script>
+</body>
+
+</html>
