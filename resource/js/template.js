@@ -9,21 +9,23 @@ window.addEventListener('DOMContentLoaded', function () {
 })
 
 function addclick() {
+	document.querySelector().classList.remove
 	// 속성 넣는 문법
 	// var query = document.querySelector('.test123').getAttribute('data-test')
 	// console.log(query);
 
-	// 속성 넣는 문법
+	// 속성 수정 문법
 	// var query = document.querySelector('.test123').setAttribute('data', '123')
 	// console.log(query);
 
 	// querySelector 선택자 토글 함수
 	// document.querySelector('.test123').classList.toggle('active');
 
-	// querySelector 선택자 클래스 및 아이디 찾기
-	// document.querySelector('#id1').classList.add('test')
-	// console.log(document.querySelector('.test123'));
-
 	// id 선택자시 아래내용으로 클래스 내용 추가
 	// document.getElementById('id1').classList.add('test')
+
+	// querySelector 선택자 클래스 제거하기
+	// document.querySelector('#id1').classList.remove('test')
+
+
 }
